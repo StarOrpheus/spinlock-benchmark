@@ -6,20 +6,23 @@ Comparison of simple spinlocks and `std::mutex`
 
 #### Mac air M2
 
-| Benchmark                             | Time    | CPU     | Iterations | UserCounters... |
-|---------------------------------------|---------|---------|------------|-----------------|
-| MyFixture<std::mutex>/threads:1       | 5.78 ns | 5.77 ns | 90571506   | 185.431M/s      |
-| MyFixture<std::mutex>/threads:2       | 25.1 ns | 48.1 ns | 17974990   | 268.651M/s      |
-| MyFixture<std::mutex>/threads:4       | 29.5 ns | 102 ns  | 7056664    | 705.396M/s      |
-| MyFixture<std::mutex>/threads:8       | 23.8 ns | 122 ns  | 6156280    | 1.39718G/s      |
-| MyFixture<std::mutex>/threads:16      | 26.5 ns | 208 ns  | 3522784    | 2.96585G/s      |
-| MyFixture<spinlock_simple>/threads:1  | 4.45 ns | 4.45 ns | 155069327  | 367.653M/s      |
-| MyFixture<spinlock_simple>/threads:2  | 21.8 ns | 43.7 ns | 17534630   | 712.213M/s      |
-| MyFixture<spinlock_simple>/threads:4  | 58.2 ns | 233 ns  | 2905648    | 1.59477G/s      |
-| MyFixture<spinlock_simple>/threads:8  | 195 ns  | 1511 ns | 413736     | 3.4526G/s       |
-| MyFixture<spinlock_simple>/threads:16 | 284 ns  | 2364 ns | 271216     | 6.74479G/s      |
-| MyFixture<spinlock2>/threads:1        | 4.55 ns | 4.55 ns | 155199631  | 359.83M/s       |
-| MyFixture<spinlock2>/threads:2        | 20.7 ns | 41.4 ns | 19021480   | 695.774M/s      |
-| MyFixture<spinlock2>/threads:4        | 45.3 ns | 180 ns  | 5422572    | 1.11762G/s      |
-| MyFixture<spinlock2>/threads:8        | 88.2 ns | 678 ns  | 800000     | 4.04249G/s      |
-| MyFixture<spinlock2>/threads:16       | 135 ns  | 1354 ns | 787456     | 4.12686G/s      |
+| Benchmark                                               | Time    | CPU     |
+|---------------------------------------------------------|---------|---------|
+| MyFixture<std::mutex>/iterations:100000/threads:1       | 21.1 ns | 21.1 ns |
+| MyFixture<std::mutex>/iterations:100000/threads:2       | 79.0 ns | 155 ns  |
+| MyFixture<std::mutex>/iterations:100000/threads:4       | 48.1 ns | 157 ns  |
+| MyFixture<std::mutex>/iterations:100000/threads:8       | 28.2 ns | 157 ns  |
+| MyFixture<std::mutex>/iterations:100000/threads:16      | 26.0 ns | 201 ns  |
+| MyFixture<std::mutex>/iterations:100000/threads:32      | 25.7 ns | 204 ns  |
+| MyFixture<spinlock_simple>/iterations:100000/threads:1  | 4.87 ns | 4.88 ns |
+| MyFixture<spinlock_simple>/iterations:100000/threads:2  | 14.3 ns | 28.6 ns |
+| MyFixture<spinlock_simple>/iterations:100000/threads:4  | 62.8 ns | 249 ns  |
+| MyFixture<spinlock_simple>/iterations:100000/threads:8  | 218 ns  | 1693 ns |
+| MyFixture<spinlock_simple>/iterations:100000/threads:16 | 456 ns  | 3742 ns |
+| MyFixture<spinlock_simple>/iterations:100000/threads:32 | 796 ns  | 6638 ns |
+| MyFixture<spinlock2>/iterations:100000/threads:1        | 4.84 ns | 4.83 ns |
+| MyFixture<spinlock2>/iterations:100000/threads:2        | 21.4 ns | 42.9 ns |
+| MyFixture<spinlock2>/iterations:100000/threads:4        | 32.3 ns | 129 ns  |
+| MyFixture<spinlock2>/iterations:100000/threads:8        | 74.8 ns | 586 ns  |
+| MyFixture<spinlock2>/iterations:100000/threads:16       | 126 ns  | 1173 ns |
+| MyFixture<spinlock2>/iterations:100000/threads:32       | 250 ns  | 2220 ns |
