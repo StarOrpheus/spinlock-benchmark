@@ -40,7 +40,7 @@ BENCHMARK_TEMPLATE_DEFINE_F(MyFixture, std_mutex_test, std::mutex)(benchmark::St
     }
 }
 
-BENCHMARK_REGISTER_F(MyFixture, std_mutex_test)->ThreadRange(1, 32)->Iterations(100000);
+BENCHMARK_REGISTER_F(MyFixture, std_mutex_test)->ThreadRange(1, 32);
 
 BENCHMARK_TEMPLATE_DEFINE_F(MyFixture, spinlock_simple_test, spinlock_simple)(benchmark::State& st) {
     for (auto&& x : st) {
@@ -48,7 +48,7 @@ BENCHMARK_TEMPLATE_DEFINE_F(MyFixture, spinlock_simple_test, spinlock_simple)(be
     }
 }
 
-BENCHMARK_REGISTER_F(MyFixture, spinlock_simple_test)->ThreadRange(1, 32)->Iterations(100000);
+BENCHMARK_REGISTER_F(MyFixture, spinlock_simple_test)->ThreadRange(1, 32);
 
 BENCHMARK_TEMPLATE_DEFINE_F(MyFixture, spinlock2, spinlock2)(benchmark::State& st) {
     for (auto&& x : st) {
@@ -56,4 +56,4 @@ BENCHMARK_TEMPLATE_DEFINE_F(MyFixture, spinlock2, spinlock2)(benchmark::State& s
     }
 }
 
-BENCHMARK_REGISTER_F(MyFixture, spinlock2)->ThreadRange(1, 32)->Iterations(100000);
+BENCHMARK_REGISTER_F(MyFixture, spinlock2)->ThreadRange(1, 32);
